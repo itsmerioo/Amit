@@ -1,5 +1,6 @@
 * {
   box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
 }
 
 body {
@@ -17,6 +18,7 @@ body {
   width: 95%;
   max-width: 500px;
   padding: 20px;
+  text-align: center;
 }
 
 .logo img {
@@ -24,18 +26,32 @@ body {
   margin-bottom: 20px;
 }
 
+
 #searchBox {
   width: 100%;
-  padding: 14px 16px;
+  padding: 14px 18px;
   font-size: 17px;
   border: 1.5px solid #ccc;
   border-radius: 30px;
   outline: none;
+  background: #fff;
+
+  transition:
+    border-color 0.25s ease,
+    box-shadow 0.25s ease,
+    transform 0.15s ease;
+}
+
+/* Tap / Focus Effect */
+#searchBox:focus,
+#searchBox:active {
+  border-color: #ff0000;
+  box-shadow: 0 0 0 4px rgba(255, 0, 0, 0.18);
+  transform: scale(1.02);
 }
 
 footer {
   margin-top: 20px;
   font-size: 13px;
-  text-align: center;
   color: #666;
 }

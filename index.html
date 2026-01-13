@@ -12,7 +12,7 @@
 <body>
   <div class="container">
     <div class="logo">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/b/b8/YouTube_Logo_2017.svg">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/b/b8/YouTube_Logo_2017.svg" alt="YouTube">
     </div>
 
     <input
@@ -26,30 +26,5 @@
   </div>
 
   <script src="script.js"></script>
-
-  <script>
-    if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('./service-worker.js').then(registration => {
-        registration.addEventListener('updatefound', () => {
-          const newWorker = registration.installing;
-
-          newWorker.addEventListener('statechange', () => {
-            if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
-              if (confirm("A new version is available. Update now?")) {
-                newWorker.postMessage('skipWaiting');
-                window.location.reload();
-              }
-            }
-          });
-        });
-      });
-
-      window.addEventListener('load', () => {
-        navigator.serviceWorker.getRegistration().then(reg => {
-          if (reg) reg.update();
-        });
-      });
-    }
-  </script>
 </body>
 </html>
